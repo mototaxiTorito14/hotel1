@@ -8,8 +8,7 @@
 </head>
 <body>
     <h1>Hola esta es una prueba HOLA................Holaaaaaaaaaaaaaaa</h1>
-    <h1>hola</h1>
-    <h2>hola2</h2>
+
 </body>
 </html>
 
