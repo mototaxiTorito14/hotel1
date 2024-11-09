@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <link rel="stylesheet" href="../../hotel1/css/style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Hotel Admin Dashboard</h2>
+        <ul>
+            <li><a href="../admin/index.php">Dashboard</a></li>
+            <li><a href="../admin/check.html">Check-In/Check-Out</a></li>
+            <li><a href="../admin/clientes.html">Clientes</a></li>
+            <li><a href="../admin/reservas.html">Reservas</a></li>
+            <li><a href="../admin/habitaciones.html">Habitaciones</a></li>
+            <li><a href="../admin/empleados.html">Empleados</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h1>Clientes</h1>
+
+        <table id="tablaCheckInOut" class="display">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Datos de ejemplo -->
+                <tr>
+                    <td>1</td>
+                    <td>Juan Pérez</td>
+                    <td>juan@email.com</td>
+                    <td>1234567890</td>
+                    <td>
+                        <button class="btnEditar" onclick="editarCliente(1)">Editar</button>
+                        <button class="btnEliminar" onclick="eliminarCliente(1)">Eliminar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Ana Gómez</td>
+                    <td>ana@email.com</td>
+                    <td>0987654321</td>
+                    <td>
+                        <button class="btnEditar" onclick="editarCliente(2)">Editar</button>
+                        <button class="btnEliminar" onclick="eliminarCliente(2)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button id="btnNuevoCliente">Agregar Cliente</button>
+
+        <!-- Modal para agregar cliente -->
+        <div id="modalCliente" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Agregar Cliente</h2>
+                <form id="formNuevoCliente">
+                    <label for="nombreCliente">Nombre:</label>
+                    <input type="text" id="nombreCliente" required />
+                    <label for="emailCliente">Email:</label>
+                    <input type="email" id="emailCliente" required />
+                    <label for="telefonoCliente">Teléfono:</label>
+                    <input type="text" id="telefonoCliente" required />
+                    <button type="submit">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+
+  <!-- Tu archivo JS personalizado -->
+  <script src="js/script.js"></script>
+</body>
+</html>

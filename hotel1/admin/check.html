@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Hotel</title>
+
+    <!-- Estilos de DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="../../hotel1/css/style.css">
+</head>
+<body>
+
+    <!-- Menú lateral (Sidebar) -->
+    <div class="sidebar">
+        <h2>Hotel Admin Dashboard</h2>
+        <ul>
+            <li><a href="../admin/index.php">Dashboard</a></li>
+            <li><a href="../admin/check.html">Check-In/Check-Out</a></li>
+            <li><a href="../admin/clientes.html">Clientes</a></li>
+            <li><a href="../admin/reservas.html">Reservas</a></li>
+            <li><a href="../admin/habitaciones.html">Habitaciones</a></li>
+            <li><a href="../admin/empleados.html">Empleados</a></li>
+        </ul>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <h1>Bienvenido al Dashboard del Hotel</h1>
+
+        <!-- Tabla de Check-In / Check-Out -->
+        <table id="tablaCheckInOut" class="display">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha Check-In</th>
+                    <th>Fecha Check-Out</th>
+                    <th>Habitación</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2024-11-08</td>
+                    <td>2024-11-10</td>
+                    <td>101</td>
+                    <td>Disponible</td>
+                    <td>
+                        <button class="btnEditar" onclick="editarRegistro(1)">Editar</button>
+                        <button class="btnEliminar" onclick="eliminarRegistro(1)">Eliminar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2024-11-09</td>
+                    <td>2024-11-11</td>
+                    <td>102</td>
+                    <td>Ocupada</td>
+                    <td>
+                        <button class="btnEditar" onclick="editarRegistro(2)">Editar</button>
+                        <button class="btnEliminar" onclick="eliminarRegistro(2)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Botón para agregar nuevo registro -->
+        <button id="btnNuevoCheckInOut">Agregar Nuevo Registro</button>
+
+        <!-- Modal para agregar nuevo registro -->
+        <div id="modalCheckInOut" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Agregar Nuevo Registro</h2>
+                <form id="formNuevoCheckInOut">
+                    <label for="fechaCheckIn">Fecha Check-In:</label>
+                    <input type="date" id="fechaCheckIn" required />
+                    <label for="fechaCheckOut">Fecha Check-Out:</label>
+                    <input type="date" id="fechaCheckOut" required />
+                    <label for="habitacionCheckInOut">Habitación:</label>
+                    <input type="number" id="habitacionCheckInOut" required />
+                    <label for="estadoCheckInOut">Estado:</label>
+                    <select id="estadoCheckInOut" required>
+                        <option value="disponible">Disponible</option>
+                        <option value="ocupada">Ocupada</option>
+                        <option value="reservada">Reservada</option>
+                        <option value="mantenimiento">Mantenimiento</option>
+                        <option value="limpieza">Limpieza</option>
+                    </select>
+                    <button type="submit">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+
+    <!-- Tu archivo JS personalizado -->
+    <script src="js/script.js"></script>
+</body>
+</html>

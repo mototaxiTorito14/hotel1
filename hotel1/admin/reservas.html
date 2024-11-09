@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas</title>
+    <link rel="stylesheet" href="../../hotel1/css/style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Hotel Admin Dashboard</h2>
+        <ul>
+            <li><a href="../admin/index.php">Dashboard</a></li>
+            <li><a href="../admin/check.html">Check-In/Check-Out</a></li>
+            <li><a href="../admin/clientes.html">Clientes</a></li>
+            <li><a href="../admin/reservas.html">Reservas</a></li>
+            <li><a href="../admin/habitaciones.html">Habitaciones</a></li>
+            <li><a href="../admin/empleados.html">Empleados</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h1>Reservas</h1>
+
+        <table id="tablaCheckInOut" class="display">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cliente</th>
+                    <th>Fecha Reserva</th>
+                    <th>Habitación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Datos de ejemplo -->
+                <tr>
+                    <td>1</td>
+                    <td>Juan Pérez</td>
+                    <td>2024-11-10</td>
+                    <td>101</td>
+                    <td>
+                        <button class="btnEditar" onclick="editarReserva(1)">Editar</button>
+                        <button class="btnEliminar" onclick="eliminarReserva(1)">Eliminar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Ana Gómez</td>
+                    <td>2024-11-12</td>
+                    <td>102</td>
+                    <td>
+                        <button class="btnEditar" onclick="editarReserva(2)">Editar</button>
+                        <button class="btnEliminar" onclick="eliminarReserva(2)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button id="btnNuevaReserva">Nueva Reserva</button>
+
+        <!-- Modal para agregar nueva reserva -->
+        <div id="modalReserva" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Agregar Reserva</h2>
+                <form id="formNuevaReserva">
+                    <label for="clienteReserva">Cliente:</label>
+                    <input type="text" id="clienteReserva" required />
+                    <label for="fechaReserva">Fecha Reserva:</label>
+                    <input type="date" id="fechaReserva" required />
+                    <label for="habitacionReserva">Habitación:</label>
+                    <input type="number" id="habitacionReserva" required />
+                    <button type="submit">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
