@@ -1,31 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Hotel</title>
 
-    <!-- Estilos de DataTables -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
-
-    <!-- Estilos personalizados -->
-    <link rel="stylesheet" href="../../hotel1/css/style.css">
-</head>
-<body>
-
-    <!-- Menú lateral (Sidebar) -->
-    <div class="sidebar">
-        <h2>Hotel Admin Dashboard</h2>
-        <ul>
-            <li><a href="../admin/index.php">Dashboard</a></li>
-            <li><a href="../admin/check.html">Check-In/Check-Out</a></li>
-            <li><a href="../admin/clientes.html">Clientes</a></li>
-            <li><a href="../admin/reservas.html">Reservas</a></li>
-            <li><a href="../admin/habitaciones.html">Habitaciones</a></li>
-            <li><a href="../admin/empleados.html">Empleados</a></li>
-        </ul>
-    </div>
-
+<?php
+include "../admin/includes/header.php";
+?>
     <!-- Contenido principal -->
     <div class="main-content">
         <h1>Bienvenido al Dashboard del Hotel</h1>
@@ -96,14 +72,6 @@
             </div>
         </div>
     </div>
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- DataTables JS -->
-    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
-
-    <!-- Tu archivo JS personalizado -->
-    <script src="js/script.js"></script>
 </body>
+<?php include "../admin/includes/footer.php" ?>
 </html>

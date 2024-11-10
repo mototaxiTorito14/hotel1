@@ -1,14 +1,6 @@
 $(document).ready(function() {
     // Inicializar DataTable
-    $('#tablaCheckInOut').DataTable({
-        paging: true,       // Paginación activada
-        searching: true,    // Búsqueda activada
-        ordering: true,     // Ordenar por columnas
-        lengthMenu: [5, 10, 25, 50], // Opciones de cantidad de filas por página
-        language: {
-            url: "https://cdn.datatables.net/plug-ins/1.13.5/i18n/Spanish.json" // Traducción al español
-        }
-    });
+
 
     // Modal: Abrir y Cerrar
     var modal = document.getElementById("modalCheckInOut");

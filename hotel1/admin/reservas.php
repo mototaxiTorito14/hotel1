@@ -1,25 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservas</title>
-    <link rel="stylesheet" href="../../hotel1/css/style.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
-</head>
-<body>
-    <div class="sidebar">
-        <h2>Hotel Admin Dashboard</h2>
-        <ul>
-            <li><a href="../admin/index.php">Dashboard</a></li>
-            <li><a href="../admin/check.html">Check-In/Check-Out</a></li>
-            <li><a href="../admin/clientes.html">Clientes</a></li>
-            <li><a href="../admin/reservas.html">Reservas</a></li>
-            <li><a href="../admin/habitaciones.html">Habitaciones</a></li>
-            <li><a href="../admin/empleados.html">Empleados</a></li>
-        </ul>
-    </div>
-
+<?php
+include "../admin/includes/header.php";
+?>
     <div class="main-content">
         <h1>Reservas</h1>
 
@@ -78,9 +59,8 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
-    <script src="js/script.js"></script>
+
 </body>
+<?php include "../admin/includes/footer.php" ?>
 </html>
 

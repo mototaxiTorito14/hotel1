@@ -1,4 +1,13 @@
 /* General */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;  /* Eliminar scroll global */
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
@@ -6,20 +15,45 @@ body {
     padding: 0;
 }
 
+/* Sidebar */
 .sidebar {
-    width: 220px;
+    width: 80px;
     height: 100vh;
     background-color: #333;
     color: white;
     position: fixed;
     top: 0;
     left: 0;
-    padding-top: 20px;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+    transition: width 0.1s ease-in, background-color 0.2s;
+}
+.sidebar:hover {
+    width: 220px;
+}
+.sidebar .logo-img {
+    width: 70px; 
+    height: auto;
+    display: block; 
+    margin: 15px 10px 0 8px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
+/* Ocultar el logo cuando la sidebar está expandida */
+.sidebar:hover .logo-img {
+    display: none; 
+}
 .sidebar h2 {
     text-align: center;
     font-size: 24px;
+    display: none;
+}
+.sidebar:hover h2 {
+    display: block; 
 }
 
 .sidebar ul {
@@ -28,10 +62,15 @@ body {
 }
 
 .sidebar ul li {
-    margin: 20px 0;
-    text-align: center;
+    margin: 28px 30px;
 }
-
+.sidebar ul li span {
+    display: none; /* Ocultar los textos de los elementos */
+    padding-left: 10px;
+}
+.sidebar:hover ul li span {
+    display: inline-block; /* Ocultar los textos de los elementos */
+}
 .sidebar ul li a {
     color: white;
     text-decoration: none;
@@ -44,9 +83,14 @@ body {
     background-color: #575757;
 }
 
+/* Main content */
 .main-content {
     margin-left: 240px;
     padding: 20px;
+    min-height: 100vh;  /* Asegura que el contenido mínimo ocupe toda la altura visible */
+    margin-top: 60px;    /* Espacio para la barra de navegación */
+    overflow: visible;   /* Permite márgenes y rellenos en el contenido */
+    margin: 110px 40px 0 240px;
 }
 
 h1 {
@@ -131,3 +175,54 @@ input, select {
     border: 1px solid #ddd;
     border-radius: 4px;
 }
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    height: 80px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar i {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        margin-top: 150px;  /* Ajusta el espacio superior cuando la barra de navegación es fija */
+    }
+
+    .display button {
+        width: 80px;
+        margin: 10px 0 10px 10px;
+    }
+
+    .navbar {
+        width: 100%;
+        background-color: #333;
+        display: flex;
+    }
+
+    .navbar i {
+        display: block;
+        color: #f4f4f9;
+        margin: 0 20px 0 20px;
+        font-size: 30px;
+    }
+
+    .contenerdor-navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+    }
+}
+
+/* Contenedor de borde para inspeccionar elementos */
+
