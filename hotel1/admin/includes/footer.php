@@ -4,6 +4,6 @@
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.semanticui.js"></script>
     
   <script src="../js/scriptdatatable.js"></script>
-  <script src="../js/scriptdatatable.js"></script>
+  <script src="../js/scripts.js"></script>
 </body>
 </html>
