@@ -15,9 +15,9 @@
 </head>
 <header>
     <nav class="navbar">
-    <div class="contenerdor-navbar">
-    <i class="fa-solid fa-bars"></i>
-    </div>
+        <div class="contenerdor-navbar">
+            <i class="fa-solid fa-bars" id="menu-toggle"></i>
+        </div>
     </nav>
 </header>
 <body>
@@ -35,7 +35,7 @@
         <li><a href="../../hotel1/admin/empleados.php"><i class="fa-solid fa-user-tie"></i> <span>Empleados</span></a></li>
 
         <!-- Línea divisoria -->
-        <hr style="border: 0.5px solid #ffffff; opacity: 0.1; margin: 60px 20px 0px 20px;">
+        <hr class="separate-line" style="border: 0.5px solid #ffffff; opacity: 0.1; margin: 60px 20px 0px 20px;">
 
         <li><a href=""><i class="fa-solid fa-right-to-bracket"></i> <span>Cerrar Sesión</span></a></li>
     </ul>

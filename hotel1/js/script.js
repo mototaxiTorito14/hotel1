@@ -6,6 +6,7 @@ $(document).ready(function() {
     var modal = document.getElementById("modalCheckInOut");
     var btn = document.getElementById("btnNuevoCheckInOut");
     var span = document.getElementsByClassName("close")[0];
+    
 
     btn.onclick = function() {
         modal.style.display = "block";
@@ -40,4 +41,18 @@ $(document).ready(function() {
             alert("Registro con ID: " + id + " eliminado");
         }
     }
+    document.getElementById("menu-toggle").addEventListener("click", function() {
+        document.querySelector(".sidebar").classList.toggle("sidebar");
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const menuToggle = document.getElementById("menu-toggle");
+        const sidebar = document.querySelector(".sidebar");
+    
+        menuToggle.addEventListener("click", function() {
+            // Alterna la clase "hidden" para mostrar/ocultar la sidebar
+            sidebar.classList.toggle("hidden");
+        });
+    });
+
 });

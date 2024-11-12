@@ -251,4 +251,23 @@ $(document).ready(function() {
         }
     });
 });
+document.addEventListener("DOMContentLoaded", function() {
+    const menuToggle = document.getElementById("menu-toggle");
+    const sidebar = document.querySelector(".sidebar");
+
+    // Verificar si los elementos están correctamente seleccionados
+    console.log(menuToggle);  // Debe mostrar el ícono de las barras
+    console.log(sidebar);     // Debe mostrar la sidebar
+
+    // Al hacer clic en el ícono de las barras, alternamos la clase 'hidden' solo en pantallas pequeñas
+    menuToggle.addEventListener("click", function() {
+        console.log("Ícono de las barras clickeado");  // Verificar que el clic es detectado
+
+        if (window.innerWidth <= 768) {
+            sidebar.classList.toggle("hidden");
+            console.log("Sidebar toggled, tamaño de pantalla:", window.innerWidth);
+        }
+    });
+});
+
 
