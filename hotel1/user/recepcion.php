@@ -25,24 +25,14 @@
         </ul>
     </div>
 
-    <div class="state-container">
-        <div class="estado-card disponible">Disponible 
-            <span class="cantidad">4</span>
-            <button class="menu-btn">⋮</button>
-        </div>
-        <div class="estado-card ocupado">Ocupado 
-            <span class="cantidad">2</span>
-            <button class="menu-btn">⋮</button>
-        </div>
-        <div class="estado-card mantenimiento">Mantenimiento 
-            <span class="cantidad">1</span>
-            <button class="menu-btn">⋮</button>
-        </div>
-        <div class="estado-card limpieza">Limpieza 
-            <span class="cantidad">1</span>
-            <button class="menu-btn">⋮</button>
-        </div>
-    </div>
+</div>
+
+    <section class="levels">
+        <div class="level-card">Nivel 1</div>
+        <div class="level-card">Nivel 2</div>
+        <div class="level-card">Nivel 3</div>
+        <div class="level-card">Nivel 4</div>
+    </section>
 
     <div class="room-container">
         <!-- Cuadros de habitaciones -->
@@ -82,6 +72,21 @@
             <div class="room-status">Mantenimiento</div>
         </div>
     </div>
+
+    <section class="status">
+        <div class="level-card">Disponible
+            <span>2</span>
+        </div>
+        <div class="level-card">Ocupado
+            <span>1</span>
+        </div>
+        <div class="level-card">Limpieza
+            <span>1</span>
+        </div>
+        <div class="level-card">Mantenimiento
+            <span>5</span>
+        </div>
+    </section>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
