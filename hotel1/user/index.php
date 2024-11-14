@@ -9,17 +9,6 @@
 </head>
 <body>
     <!-- Menú Lateral -->
-    <div class="sidebar">
-        <h2>Hotel Admin Dashboard</h2>
-        <ul>
-            <li><a href="../../hotel1/user/index.php">Dashboard</a></li>
-            <li><a href="../user/recepcion.html">Recepción</a></li>
-            <li><a href="../admin/clientes.html">Clientes</a></li>
-            <li><a href="../admin/reservas.html">Reservas</a></li>
-            <li><a href="../admin/habitaciones.html">Habitaciones</a></li>
-            <li><a href="../admin/empleados.html">Empleados</a></li>
-        </ul>
-    </div>
 
     <!-- Contenido Principal -->
     <div class="main-content">

@@ -144,3 +144,20 @@ h1 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
+
+.dropdown .dropdown-menu {
+    display: none; /* Oculta el submenú inicialmente */
+    list-style: none;
+    padding-left: 15px;
+    margin: 5px 0;
+}
+
+.dropdown.active .dropdown-menu {
+    display: block; /* Muestra el submenú cuando está activo */
+}
+
+.dropdown-menu li a {
+    color: #B0BEC5;
+}
+
+/* Estilo del apertura caja */
