@@ -1,25 +1,62 @@
 /* General */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    height: 100%;
     margin: 0;
     padding: 0;
+    overflow: auto;  /* Eliminar scroll global */
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+}
+:root{
+    --background-button:#454545c3;
+    --hoover-button:#007BFF;
+    --header-table:#007BFF;
+    --body-table:#e4e4e48d;
+    --fondo-verde:#32bc538e;
+    --borde-verde:#218838;
+    --fondo-rojo:#f33e50bc;
+    --borde-rojo:#c82333;
 }
 
+/* Sidebar */
 .sidebar {
-    width: 220px;
-    height: 100vh;
+    width: 80px;
+    height: 100%;
     background-color: #333;
     color: white;
     position: fixed;
     top: 0;
     left: 0;
-    padding-top: 20px;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+    transition: width 0.3s ease-in, background-color 0.3s;
+}
+.sidebar:hover {
+    width: 220px;
+}
+.sidebar .logo-img {
+    width: 70px; 
+    height: auto;
+    display: block; 
+    margin: 15px 10px 0 8px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
+/* Ocultar el logo cuando la sidebar está expandida */
+.sidebar:hover .logo-img {
+    display: none; 
+}
 .sidebar h2 {
     text-align: center;
     font-size: 24px;
+    display: none;
+}
+.sidebar:hover h2 {
+    display: block; 
 }
 
 .sidebar ul {
@@ -28,10 +65,15 @@ body {
 }
 
 .sidebar ul li {
-    margin: 20px 0;
-    text-align: center;
+    margin: 28px 30px;
 }
-
+.sidebar ul li span {
+    display: none; /* Ocultar los textos de los elementos */
+    padding-left: 10px;
+}
+.sidebar:hover ul li span {
+    display: inline-block; /* Ocultar los textos de los elementos */
+}
 .sidebar ul li a {
     color: white;
     text-decoration: none;
@@ -44,9 +86,14 @@ body {
     background-color: #575757;
 }
 
+/* Main content */
 .main-content {
     margin-left: 240px;
     padding: 20px;
+    min-height: 100vh;  /* Asegura que el contenido mínimo ocupe toda la altura visible */
+    margin-top: 60px;    /* Espacio para la barra de navegación */
+    overflow: visible;   /* Permite márgenes y rellenos en el contenido */
+    margin: 110px 40px 0 240px;
 }
 
 h1 {
@@ -54,110 +101,202 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* ESTILO DE LAS CAJAS DE HABITACIONES Y ESTADOS */
-
-.status {
-    display: flex;
-    gap: 5px;
-    padding: 20px;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    margin-left: 220px;
-    margin-top: 40px;
+/* Tabla */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
 }
 
-.estado-card {
-    padding: 15px 20px;
-    border-radius: 5px;
-    color: rgb(0, 0, 0);
-    background-color: rgb(214, 214, 214);
-    font-weight: bold;
-    text-align: center;
-    min-width: 120px;
+table, th, td {
+    border: 1px solid #ddd;
 }
 
-.cantidad {
-    margin-right: 30px;
-    margin-left: 75px;
+th, td {
+    padding: 10px;
+    text-align: left;
 }
 
-.room-container {
-    max-width: 800px; /* Ancho máximo para el contenedor */
-    margin: 0 auto; /* Centra el contenedor horizontalmente */
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap; /* Permite que las habitaciones se ajusten en varias filas */
-    gap: 15px; /* Espacio entre las habitaciones */
-    justify-content: center; /* Centra las habitaciones dentro del contenedor */
-}
-
-.room-card {
-    width: 150px;
-    padding: 20px;
-    text-align: center;
-    border-radius: 8px;
+th {
+    background-color: var(--header-table);
     color: white;
-    font-size: 16px;
+    text-align: center;
+
+}
+td{
+    background-color: var(--body-table);
 }
 
-.room-card .room-number {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 5px;
+button {
+    
+    padding: 8px 16px;
+    margin: 10px 5px;
+    border: none;
+    background-color: var(--background-button);
+    color: white;
+    cursor: pointer;
 }
 
-.room-card.available {
-    background-color: #4CAF50; /* Verde para Disponible */
+button:hover {
+    background-color: var(--hoover-button);
 }
 
-.room-card.occupied {
-    background-color: #f44336; /* Rojo para Ocupado */
+/* Modal */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Sombra oscura detrás del modal */
 }
 
-.room-card.maintenance {
-    background-color: #FFC107; /* Amarillo para Mantenimiento */
-    color: black;
-}
-
-.room-card.cleaning {
-    background-color: #2196F3; /* Azul para Limpieza */
-}
-
-/* DISEÑO DE LOS NIVELES */
-
-.levels {
-    display: flex;
-    gap: 5px;
+/* Contenido del modal */
+.modal-content {
+    background-color: white;
+    position: absolute;  /* Cambié "margin" por "absolute" */
+    top: 50%;  /* Lo coloca en el centro de la pantalla */
+    left: 50%;  /* Lo coloca en el centro de la pantalla */
+    transform: translate(-50%, -50%);  /* Ajusta el modal para centrarlo completamente */
     padding: 20px;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    margin-left: 220px;
+    border-radius: 5px;
+    width: 40%;  /* Puedes ajustar el ancho según lo necesites */
 }
 
-.level-card {
-    flex: 1;
-    font-size: 18px;
-    color: #000000;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo para inputs y select */
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    height: 80px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar i {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .main-content {
+        margin-left: 60px;
+        margin-top: 150px;  /* Ajusta el espacio superior cuando la barra de navegación es fija */
+    }
+
+    .display button {
+        width: 80px;
+        margin: 10px 0 10px 10px;
+    }
+
+    .navbar {
+        width: 100%;
+        background-color: #333;
+        display: flex;
+    }
+
+    .navbar i {
+        display: block;
+        color: #f4f4f9;
+        margin: 0 20px 0 20px;
+        font-size: 30px;
+    }
+
+    .contenerdor-navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+    }
+    .separate-line{
+        
+        display: none;
+    }
+
+
+
+.sidebar {
+    
+    transform: translateX(-100%); /* La barra lateral está fuera de la vista */
+    opacity: 0; /* La barra lateral es invisible */
+  }
+  
+  /* Cuando la barra lateral tiene la clase "active", se muestra */
+  .sidebar.active {
+    transform: translateX(0); /* La barra lateral se mueve a su posición original */
+    opacity: 1; /* La barra lateral es visible */
+  }
+  
+}
+.estado-padre{
     text-align: center;
 }
-
-.dropdown .dropdown-menu {
-    display: none; /* Oculta el submenú inicialmente */
-    list-style: none;
-    padding-left: 15px;
-    margin: 5px 0;
+.estado-texto {
+    padding: 5px 5px; /* Espaciado alrededor del texto */
+    border-radius: 15px; /* Bordes redondeados */
+    font-weight: bold; /* Negrita para el texto */
+    color: white; /* Color del texto */
+    display: inline-block; /* Hace que el span solo ocupe el espacio necesario */
+    text-transform: uppercase;
+    font-size: 10px;
 }
 
-.dropdown.active .dropdown-menu {
-    display: block; /* Muestra el submenú cuando está activo */
+.activo {
+    background-color: var(--fondo-verde); /* Fondo verde */
+    border: 2px solid var(--borde-verde); /* Borde más oscuro para el estado activo */
 }
 
-.dropdown-menu li a {
-    color: #B0BEC5;
+.inactivo {
+    background-color: var(--fondo-rojo); /* Fondo rojo */
+    border: 2px solid var(--borde-rojo); /* Borde más oscuro para el estado inactivo */
+}
+.estado-texto {
+    padding: 5px 5px; /* Espaciado alrededor del texto */
+    border-radius: 15px; /* Bordes redondeados */
+    font-weight: bold; /* Negrita para el texto */
+    color: white; /* Color del texto */
+    display: inline-block; /* Hace que el span solo ocupe el espacio necesario */
+    text-transform: uppercase;
+    font-size: 10px;
 }
 
-/* Estilo del apertura caja */
+.abierta {
+    background-color:var(--fondo-verde); /* Fondo verde */
+    border: 2px solid var(--borde-verde); /* Borde más oscuro para el estado activo */
+}
+
+.cerrada {
+    background-color: var(--fondo-rojo); /* Fondo rojo */
+    border: 2px solid var(--borde-rojo); 
+}
+
